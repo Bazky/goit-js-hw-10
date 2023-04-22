@@ -11,8 +11,6 @@ const DEBOUNCE_DELAY = 300;
 searchEl.addEventListener(
   'input',
   debounce(async ev => {
-    // 'input',
-    // _.debounce
     const countryName = ev.target.value;
     const countries = await fetchCountries(countryName);
 
@@ -26,11 +24,13 @@ searchEl.addEventListener(
       Notiflix.Notify.info(
         'Too many matches found. Please enter a more specific name.'
       );
+    } else if (countries.length === undefined) {
+      Notiflix.Notify.failure('Oops, there is no country with that name');
     } else {
       countryListEl.innerHTML = countries
         .map(
           country =>
-            `<li><img height='16' src='${country.flags.png}'/>${country.name.common}</li>`
+            `<li><img height ='20' width = '30' src='${country.flags.png}'/>${country.name.common}</li>`
         )
         .join('');
     }
@@ -42,7 +42,7 @@ searchEl.addEventListener(
     <p>Languages: ${Object.values(countries[0].languages).join(', ')}</p>
     `;
     }
-
+    countries.capital.style = 'font-weight:700';
     console.log(countries);
   }, DEBOUNCE_DELAY)
 );
