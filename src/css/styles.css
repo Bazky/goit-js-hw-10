@@ -13,6 +13,7 @@ ul {
   flex-direction: column;
   font-size: 30px;
   font-weight: 600;
+  margin: 0;
 }
 .country-info {
   align-items: center;
@@ -32,5 +33,5 @@ body {
   font: inherit;
   padding: 8px;
   max-width: 320px;
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }

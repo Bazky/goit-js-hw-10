@@ -37,12 +37,14 @@ searchEl.addEventListener(
 
     if (countries.length === 1) {
       countryInfoEl.innerHTML = `
-    <p>Capital: ${countries[0].capital}</p>
-    <p>Population: ${countries[0].population}</p>
-    <p>Languages: ${Object.values(countries[0].languages).join(', ')}</p>
+    <p><strong>Capital:</strong> ${countries[0].capital}</p>
+    <p><strong>Population:</strong> ${countries[0].population}</p>
+    <p><strong>Languages:</strong> ${Object.values(countries[0].languages).join(
+      ', '
+    )}</p>
     `;
     }
-    countries.capital.style = 'font-weight:700';
+
     console.log(countries);
   }, DEBOUNCE_DELAY)
 );
